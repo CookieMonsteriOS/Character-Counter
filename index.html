@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Counter</title>
+</head>
+<body>
+    <label for="textArea">Enter text:</label>
+    <textarea  id="textArea" rows="4" cols="50"></textarea>
+    <p>Remaining characters: <span id="counter"></span></p>
+    <script>
+        document.getElementById('textArea').addEventListener("keyup", setCounterBehaviour)
+
+        function setCounterBehaviour(e){
+            let textInput = e.target.value; 
+            let charLimit = 140;
+            let remainingCharCount = charLimit - textInput.length;
+
+            let textInputArea = document.getElementById('textArea');
+            let setCount = document.getElementById('counter');
+
+            setCount.innerText = remainingCharCount;
+            textInputArea.disabled = textInput.length > charLimit ? true : false;
+        }
+    </script>
+</body>
+</html>
